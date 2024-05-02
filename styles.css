@@ -7,3 +7,35 @@ body {
 ul {
     list-style-image: url("img/5.svg");
 }
+#results ul li {
+    cursor: pointer;
+}
+
+#descPokeDiv{
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.739);
+}
+#desc {
+    max-width: fit-content;
+    }
+
+.sprite {
+    background-color: whitesmoke;
+    border-radius: 50%;
+    border: 5px solid #0d6efd;
+    width: 80%;
+    margin: 2em;
+    margin: auto;
+    margin: 1em;
+}
+    /*
+    #results {
+        margin: auto;
+        margin: 1em;
+    }
+    */
