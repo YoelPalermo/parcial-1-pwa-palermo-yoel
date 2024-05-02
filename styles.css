@@ -1,0 +1,9 @@
+body {
+    font-family: 'Pokemon Solid', sans-serif;
+
+    background-color: #282828;
+    color: #ccc;
+}
+ul {
+    list-style-image: url("img/5.svg");
+}
