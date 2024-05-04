@@ -4,12 +4,7 @@ body {
     background-color: #282828;
     color: #ccc;
 }
-ul {
-    list-style-image: url("img/5.svg");
-}
-#results ul li {
-    cursor: pointer;
-}
+
 
 #descPokeDiv{
     position: fixed;
@@ -20,9 +15,32 @@ ul {
     right: 0;
     background-color: rgba(0, 0, 0, 0.739);
 }
+.listH{  
+
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.841);
+}
+
+
+
 #desc {
-    max-width: fit-content;
-    }
+max-width: fit-content;
+}
+
+
+
+ul {
+    list-style-image: url("img/5.svg");
+}
+
+#results ul li {
+    cursor: pointer;
+}
 
 .sprite {
     background-color: whitesmoke;
@@ -33,9 +51,14 @@ ul {
     margin: auto;
     margin: 1em;
 }
-    /*
-    #results {
-        margin: auto;
-        margin: 1em;
-    }
-    */
+
+#results {
+    margin: auto;
+    margin: 1em;
+}
+
+
+
+/*********************/
+
+

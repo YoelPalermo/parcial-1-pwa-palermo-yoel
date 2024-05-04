@@ -122,7 +122,6 @@ ${pokemon.id} - ${pokemon.name}
 </div>`;
 
 
-    /*/////////////////////////*/
 
     closeButton = document.createElement('button');
     closeButton.textContent = 'X';
@@ -190,14 +189,110 @@ function agregarAlHistorial() {
 
 
 
-
-
-
-
-
-
 }
 fetchPokemons();
+
+
+
+const verHistorialButton = document.getElementById('verHistorial');
+verHistorialButton.addEventListener('click', mostrarHistorial);
+
+const historyDiv = document.getElementById('history');
+historyDiv.setAttribute('class', 'bg-warning text-dark text-capitalize rounded m-auto text-center');
+
+
+// mostrar el historial
+function mostrarHistorial() {
+    const historial = JSON.parse(localStorage.getItem('pokemonHistorial')) || [];
+    const ulH = document.createElement('ul');
+    ulH.setAttribute('class', 'ulH p-5 col-md-6 m-auto'); 
+
+    const  historyContainer = document.createElement('div');
+
+    historyContainer.setAttribute ('class', 'listH text-end');
+
+//historial con datos
+    function okH() {
+
+        historial.forEach(pokemonHistorial => {
+
+            const liH = document.createElement('li');
+            liH.textContent = (pokemonHistorial);
+            liH.setAttribute('class', 'rounded bg-secondary  m-2 p-2 text-center');
+
+            ulH.appendChild(liH);
+        });
+
+      closeButton = document.createElement('button');
+      closeButton.textContent = 'X';
+      closeButton.setAttribute('class', 'btn closeButton bg-danger text-center border border-0 m-4');
+      closeButton.setAttribute('id', 'close');
+  
+      historyContainer.appendChild(closeButton);
+   
+
+        const total = document.createElement('p');
+        total.textContent = `Pokedex: ${historial.length}`;
+        total.setAttribute('class',' bg-dark p-4 rounded text-warning text-center');
+
+historyContainer.appendChild(total);
+historyContainer.appendChild(ulH);
+
+       
+        closeButton.addEventListener('click', () => {
+    
+            if (historyDiv) {
+                historyDiv.innerHTML = '';
+            }
+        })
+     
+historyDiv.appendChild(historyContainer);
+
+    }
+
+
+
+    if (historial.length > 0) {
+okH(mostrarHistorial);
+
+    } else {
+ 
+        closeButton = document.createElement('button');
+
+        closeButton.textContent = 'X';
+        closeButton.setAttribute('class', 'btn closeButton bg-danger text-center border border-0 m-3');
+        closeButton.setAttribute('id', 'close');
+    
+    
+        historyContainer.appendChild(closeButton);
+ 
+       const ulH = document.createElement('ul');
+       ulH.setAttribute('class', 'list-unstyled');
+       const liH = document.createElement('li');
+        liH.innerHTML = ('¡your Pokedex is empty!');
+        liH.setAttribute('class', ' bg-dark text-danger fs-3 text-center border border-danger p-4 rounded col-md-6 m-auto ');
+        ulH.appendChild(liH);
+
+        historyContainer.appendChild(ulH);
+
+    
+       
+        closeButton.addEventListener('click', () => {
+    
+            if (historyDiv) {
+                historyDiv.innerHTML = '';
+            }
+        })
+        historyDiv.appendChild(historyContainer);
+      
+    }
+
+
+ 
+  
+}
+
+
 
 
 searchBtn.addEventListener('click', () => {
