@@ -35,7 +35,7 @@ async function fetchPokemons() {
 
 
             const li = document.createElement('li');
-            li.setAttribute('class', 'p-4 rounded bg-secondary text-dark mb-3 text-center  text-capitalize ');
+            li.setAttribute('class', 'p-2 rounded bg-secondary text-dark mb-3 text-center  text-capitalize ');
             li.innerHTML = `#${pokemon.id} - ${pokemon.name}`;
 
 
@@ -144,13 +144,20 @@ ${pokemon.id} - ${pokemon.name}
 };
 
 ////////////card
+function agregarAlHistorial() {
 
+    const historial = JSON.parse(localStorage.getItem('pokemonHistorial')) || [];
 
+    if (!historial.includes(pokemon.name)) {
+        historial.push(pokemon.name);
+        localStorage.setItem('pokemonHistorial', JSON.stringify(historial));
+    }
 
+}
 
             li.addEventListener('click', () => {
              
-               
+                agregarAlHistorial();
                 cardPoke();
             });
             resultsDiv.appendChild(ul);
@@ -343,6 +350,16 @@ ${pokemon.id} - ${pokemon.name}
 
         if (descPokeDiv) {
             descPokeDiv.remove();
+
+            function agregarAlHistorial() {
+
+                const historial = JSON.parse(localStorage.getItem('pokemonHistorial')) || [];
+
+                if (!historial.includes(pokemon.name)) {
+                    historial.push(pokemon.name);
+                    localStorage.setItem('pokemonHistorial', JSON.stringify(historial));
+                }
+            } agregarAlHistorial();
 
         }
     })
